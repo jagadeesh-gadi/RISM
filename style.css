@@ -193,6 +193,34 @@ header {
 
  
 }
+/* ======================================
+   RESPONSIVE NAVIGATION (MOBILE)
+====================================== */
+@media (max-width: 768px) {
+
+  .nav-links {
+    display: none; /* hide desktop menu */
+  }
+
+  .nav-toggle {
+    display: block; /* show hamburger icon */
+  }
+
+  .logo-badge {
+    width: 45px;
+    height: 45px;
+  }
+
+  .logo-title {
+    font-size: 1.4rem;
+  }
+
+  .logo-sub {
+    font-size: 0.65rem;
+  }
+
+}
+
 
 /* ==========================
    FADE BANNER SLIDER
@@ -733,7 +761,7 @@ header {
 
 /* RIGHT SIDE MAP */
 .location-right iframe {
-  width: 650px;
+  width: 350px;
   height: 320px;
   border-radius: 12px;
   border: 0;
