@@ -769,15 +769,40 @@ header {
 }
 
 /* RESPONSIVE */
+/* RESPONSIVE */
 @media (max-width: 768px) {
+
   .location-box {
     flex-direction: column;
+    padding: 20px;
+    gap: 20px;
   }
 
+  .location-left {
+    text-align: center; /* looks better for mobile */
+  }
+
+  .location-left h2 {
+    font-size: 1.6rem;
+  }
+
+  .location-left p {
+    font-size: 0.95rem;
+  }
+
+  /* FIX: MAKE MAP FULL WIDTH ON MOBILE */
   .location-right iframe {
-    height: 280px;
+    width: 100% !important;   /* Full width */
+    height: 260px;            /* Adjust height */
+    border-radius: 10px;
   }
 }
+@media (max-width: 480px) {
+  .location-right iframe {
+    height: 230px;
+  }
+}
+
 
 
 /* =============== footer section================= */
