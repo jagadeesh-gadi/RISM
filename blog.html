@@ -190,6 +190,26 @@
 
     <!-- END HEADER -->
     <script src="script.js"></script>
+    <script>
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  navToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    navToggle.innerHTML = mobileMenu.classList.contains('open')
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
+  });
+
+  // Close menu when clicking a link
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+  });
+</script>
+
 </body>
 
 </html>
