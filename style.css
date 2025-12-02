@@ -56,6 +56,11 @@ header {
 }
 
 /* Logo */
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .logo {
   display: flex;
   align-items: center;
