@@ -25,30 +25,30 @@
         <div class="container">
             <nav class="nav">
                 <!-- Left: Logo -->
-                 <a href="index.html" class="logo-link">
+                <a href="index.html" class="logo-link">
 
-                <div class="logo">
-                    <div class="logo-badge">
-                        <img src="img\logo2.png" alt="RAJ Institute logo" class="logo-img" />
+                    <div class="logo">
+                        <div class="logo-badge">
+                            <img src="img\logo2.png" alt="RAJ Institute logo" class="logo-img" />
+                        </div>
+                        <div class="logo-text-wrap">
+                            <span class="logo-title">R<span style="color:#f97316;">ISM</span></span>
+                            <div class="logo-sub">RAJ Institute of<br> Skill Management</div>
+                        </div>
                     </div>
-                    <div class="logo-text-wrap">
-                        <span class="logo-title">R<span style="color:#f97316;">ISM</span></span>
-                        <div class="logo-sub">RAJ Institute of<br> Skill Management</div>
-                    </div>
-                </div>
-                 </a>
+                </a>
 
                 <!-- Middle: Links (Desktop) -->
-                 <a href="index.html" class="logo-link">
+                <a href="index.html" class="logo-link">
 
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="courses.html">Courses</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                 </a>
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="courses.html">Courses</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </a>
 
 
                 <!-- Mobile Toggle -->
@@ -78,7 +78,7 @@
     =========================== -->
             <h2 class="sub-heading">Photo Gallery</h2>
 
-            <div class="image-grid">
+            <div class="image-grid" id="popup">
                 <img src="img/blog/1.jpg" alt="1">
                 <img src="img/blog/2.jpg" alt="2">
                 <img src="img/blog/3.jpg" alt="3">
@@ -88,6 +88,10 @@
                 <img src="img/blog/7.jpg" alt="7">
                 <img src="img/blog/8.jpg" alt="8">
                 <img src="img/blog/9.jpg" alt="9">
+            </div>
+            <div class="image-popup" id="imagePopup">
+                <span class="close-popup" id="closePopup">&times;</span>
+                <img id="popupImage">
             </div>
 
 
@@ -197,24 +201,52 @@
     <!-- END HEADER -->
     <script src="script.js"></script>
     <script>
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
 
-  navToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-    navToggle.innerHTML = mobileMenu.classList.contains('open')
-      ? '<i class="fas fa-times"></i>'
-      : '<i class="fas fa-bars"></i>';
-  });
+        navToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            navToggle.innerHTML = mobileMenu.classList.contains('open')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
 
-  // Close menu when clicking a link
-  document.querySelectorAll('#mobileMenu a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        // Close menu when clicking a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+      
+    const popup = document.getElementById("imagePopup");
+    const popupImg = document.getElementById("popupImage");
+    const closePopup = document.getElementById("closePopup");
+
+    // Open popup when image clicked
+    document.querySelectorAll(".image-grid img").forEach(img => {
+        img.addEventListener("click", () => {
+            popup.style.display = "flex";
+            popupImg.src = img.src;
+        });
     });
-  });
-</script>
+
+    // Close when clicking X
+    closePopup.addEventListener("click", () => {
+        popup.style.display = "none";
+    });
+
+    // Close when clicking outside image
+    popup.addEventListener("click", (e) => {
+        if (e.target === popup) {
+            popup.style.display = "none";
+        }
+    });
+
+
+
+    </script>
 
 </body>
 
